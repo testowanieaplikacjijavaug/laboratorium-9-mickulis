@@ -2,6 +2,7 @@ package lab9;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Spy;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -21,7 +22,8 @@ public class MessengerTests
 	@BeforeEach
 	public void setup()
 	{
-		client = mock(Client.class);
+		client = spy(new ClientImplementation());
+		doReturn(clientEmail).when(client).getEmail();
 		template = mock(Template.class);
 		templateEngine = mock(TemplateEngine.class);
 		mailServer = mock(MailServer.class);
@@ -107,4 +109,22 @@ public class MessengerTests
 
 		assertThrows(NullPointerException.class, () -> messenger.sendMessage(client, template));
 	}
+
+	// empty class implementation to showcase Mockito.Spy functionality
+	class ClientImplementation implements Client
+	{
+		@Override
+		public String getEmail()
+		{
+			throw new RuntimeException("Not implemented");
+		}
+
+		@Override
+		public void receive(Message message)
+		{
+			throw new RuntimeException("Not implemented");
+		}
+	}
 }
+
+
