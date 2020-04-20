@@ -1,1 +1,2 @@
 [![Build Status](https://travis-ci.com/testowanieaplikacjijavaug/laboratorium-9-mickulis.svg?branch=master)](https://travis-ci.com/testowanieaplikacjijavaug/laboratorium-9-mickulis)
+[![codecov](https://codecov.io/gh/testowanieaplikacjijavaug/laboratorium-9-mickulis/branch/master/graph/badge.svg)](https://codecov.io/gh/testowanieaplikacjijavaug/laboratorium-9-mickulis)
